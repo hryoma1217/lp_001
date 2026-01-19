@@ -1,77 +1,60 @@
+/**
+ * main.js
+ * * 役割:
+ * 1. スクロール連動アニメーション (Fade-in Up)
+ * 2. スムーズスクロール
+ * (ヘッダーのスクロール検知はCSSでの常時表示に変更したため削除)
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ---------------------------------------------
-    // Mobile Menu Toggle
-    // ---------------------------------------------
-    const menuBtn = document.getElementById('menu-btn');
-    const headerElement = document.getElementById('header');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    // ==============================================
+    // 1. スクロール連動アニメーション (Fade-in Up)
+    // ==============================================
+    
+    const animTargets = document.querySelectorAll('.scroll-anim');
 
-    if(menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            headerElement.classList.toggle('menu-open');
-            
-            // メニュー展開時はスクロール禁止
-            if (headerElement.classList.contains('menu-open')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-    }
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            headerElement.classList.remove('menu-open');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // ---------------------------------------------
-    // Scroll Animation (Fade-in UP)
-    // ---------------------------------------------
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // 少しでも見えたら発火
+        threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    };
 
-    const fadeElements = document.querySelectorAll('.fade-up');
-    fadeElements.forEach(el => observer.observe(el));
-
-    // ---------------------------------------------
-    // Header Scroll Effect
-    // ---------------------------------------------
-    const header = document.getElementById('header');
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-md', 'py-3');
-            header.classList.remove('py-5');
-        } else {
-            header.classList.remove('shadow-md', 'py-3');
-            header.classList.add('py-5');
-        }
+    animTargets.forEach(target => {
+        observer.observe(target);
     });
 
-    // ---------------------------------------------
-    // Smooth Scroll
-    // ---------------------------------------------
+
+    // ==============================================
+    // 2. ヘッダーのスクロール制御 (修正: 削除)
+    // ヘッダーは常時表示となったため、このブロックは削除しました。
+    // ==============================================
+    
+
+    // ==============================================
+    // 3. スムーズスクロール (アンカーリンク)
+    // ==============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
+            
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
