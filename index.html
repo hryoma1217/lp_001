@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お家建てるマン（仮）| 地域密着のオーダーメイド住宅</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Helvetica Neue"', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-bg': '#fdfbf7',
+                        'brand-text': '#4a4036',
+                        'brand-accent': '#c7a27a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased bg-brand-bg text-brand-text">
+
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center relative z-50">
+            <h1 class="text-xl font-bold tracking-widest">
+                <a href="#">お家建てるマン</a>
+                <span class="text-xs font-normal block opacity-80">SINCE 2026</span>
+            </h1>
+            
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest">
+                <a href="#concept" class="nav-link">コンセプト</a>
+                <a href="#works" class="nav-link">施工事例</a>
+                <a href="#about" class="nav-link">私たちについて</a>
+                <a href="#contact" class="btn-primary-outline">お問い合わせ</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50 group">
+                <span class="block w-6 h-0.5 bg-brand-text transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-brand-text transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-brand-text transition-all duration-300"></span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-bg z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <nav class="flex flex-col space-y-8 text-center text-lg tracking-widest font-bold">
+                <a href="#concept" class="mobile-link">コンセプト</a>
+                <a href="#works" class="mobile-link">施工事例</a>
+                <a href="#about" class="mobile-link">私たちについて</a>
+                <a href="#contact" class="mobile-link text-brand-accent">お問い合わせ</a>
+            </nav>
+            <div class="absolute bottom-10 text-xs text-gray-400">
+                &copy; 2026 Ouchi Tateru Man.
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1545061329-76e7df932523?q=80&w=2670&auto=format&fit=crop" 
+                 alt="Japanese House Interior" 
+                 class="w-full h-full object-cover">
+            <div class="overlay-hero"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 fade-up">
+            <p class="text-lg md:text-xl mb-6 tracking-[0.2em] font-light text-shadow">風土と生きる、世界に一つの家。</p>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-widest leading-tight mb-10 text-shadow">
+                あなたの物語を<br>建築する。
+            </h2>
+            <a href="#contact" class="btn-hero">
+                詳しく見る
+            </a>
+        </div>
+        
+        <div class="scroll-indicator">
+            SCROLL
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <section id="concept" class="section-padding">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 fade-up">
+                    <div class="img-hover-wrapper aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1627916607164-7b5267b5e476?q=80&w=2670&auto=format&fit=crop" 
+                             alt="Family in living room" 
+                             class="img-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 fade-up delay-200">
+                    <span class="section-subtitle">CONCEPT</span>
+                    <h3 class="section-title">
+                        「ただいま」が、<br>
+                        一番心地よい場所に。
+                    </h3>
+                    <p class="text-body mb-6">
+                        私たちは家という「箱」を作るのではありません。<br>
+                        そこで紡がれる家族の時間、四季の移ろい、<br>
+                        そして、何気ない日常の美しさをデザインします。
+                    </p>
+                    <p class="text-body mb-8">
+                        地域密着だからこそできる、<br>
+                        土地の風土に合わせた細やかな設計と、<br>
+                        職人の手仕事による温もりをお届けします。
+                    </p>
+                    <a href="#" class="link-arrow">
+                        私たちの想い <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 fade-up">
+                <span class="section-subtitle">FEATURES</span>
+                <h3 class="section-title-sm">お家建てるマンの家づくり</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="group fade-up">
+                    <div class="img-hover-wrapper aspect-square mb-6">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670&auto=format&fit=crop" 
+                             alt="Wood craftsmanship" 
+                             class="img-cover">
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 tracking-wide">自然素材へのこだわり</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        無垢材や漆喰など、呼吸する素材を使用。<br>
+                        年月とともに深みを増す経年変化を楽しめます。
+                    </p>
+                </div>
+
+                <div class="group fade-up delay-100">
+                    <div class="img-hover-wrapper aspect-square mb-6">
+                        <img src="https://images.unsplash.com/photo-1633505697666-485600094e63?q=80&w=2670&auto=format&fit=crop" 
+                             alt="Architectural Design" 
+                             class="img-cover">
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 tracking-wide">自由設計と対話</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        決まったプランはありません。<br>
+                        対話を重ね、理想のライフスタイルを形にします。
+                    </p>
+                </div>
+
+                <div class="group fade-up delay-200">
+                    <div class="img-hover-wrapper aspect-square mb-6">
+                        <img src="https://images.unsplash.com/photo-1599619351208-3e6c839d6828?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Japanese Garden" 
+                             class="img-cover">
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 tracking-wide">地域との調和</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        その土地の光、風、景観を読み解き、<br>
+                        街並みに美しく馴染むデザインを提案します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="section-padding">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-12 fade-up">
+                <div>
+                    <span class="section-subtitle">WORKS</span>
+                    <h3 class="section-title-sm">施工事例</h3>
+                </div>
+                <a href="#" class="btn-outline hidden md:block">すべて見る</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="fade-up group cursor-pointer">
+                    <div class="img-hover-wrapper aspect-[16/9] mb-4">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop" 
+                             alt="Modern Japanese House" 
+                             class="img-cover">
+                    </div>
+                    <h4 class="text-lg font-bold">鎌倉の平屋</h4>
+                    <p class="text-sm text-gray-500">注文住宅 / 神奈川県</p>
+                </div>
+
+                <div class="fade-up delay-100 group cursor-pointer">
+                    <div class="img-hover-wrapper aspect-[16/9] mb-4">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2400&auto=format&fit=crop" 
+                             alt="Living room with garden view" 
+                             class="img-cover">
+                    </div>
+                    <h4 class="text-lg font-bold">光庭のある家</h4>
+                    <p class="text-sm text-gray-500">注文住宅 / 東京都</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="btn-outline">すべて見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 relative bg-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1532323544230-7191fd510c59?q=80&w=2574&auto=format&fit=crop" 
+                 alt="Evening house view" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="container relative z-10 mx-auto px-6 text-center fade-up">
+            <h3 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                未来の暮らしを、<br>一緒に描きませんか？
+            </h3>
+            <p class="mb-12 tracking-widest opacity-90">
+                資料請求・無料相談のご予約はこちらから
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#" class="btn-cta bg-white text-brand-text hover:bg-gray-100">
+                    資料請求・お問い合わせ
+                </a>
+                <a href="#" class="btn-cta border border-white text-white hover:bg-white/10">
+                    モデルハウス見学予約
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about" class="bg-brand-text text-white/80 py-12 text-xs tracking-widest">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <h2 class="text-lg font-bold text-white mb-2">お家建てるマン</h2>
+                <p>〒123-4567 東京都〇〇区〇〇 1-2-3</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition-colors">会社概要</a>
+                <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+            </div>
+            <p class="opacity-50">&copy; 2026 Ouchi Tateru Man. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
