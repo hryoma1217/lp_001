@@ -1,0 +1,24 @@
+# --- .gitignore の中身 ---
+
+# OSが自動で作る不要なファイル
+.DS_Store
+Thumbs.db
+
+# 依存パッケージ
+node_modules/
+dist/
+
+# 環境変数・機密情報
+.env
+.env.local
+*.pem
+*.key
+
+# エディタの設定ファイル
+.vscode/
+.idea/
+
+# Terraform用
+*.tfstate
+*.tfstate.backup
+.terraform/
