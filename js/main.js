@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ---------------------------------------------
-    // Mobile Menu Toggle (NEW!)
+    // Mobile Menu Toggle
     // ---------------------------------------------
     const menuBtn = document.getElementById('menu-btn');
-    const headerElement = document.getElementById('header'); // header要素全体
+    const headerElement = document.getElementById('header');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    // ボタンクリックでクラスを付け外し
     if(menuBtn) {
         menuBtn.addEventListener('click', () => {
             headerElement.classList.toggle('menu-open');
             
-            // メニューが開いているときはスクロール禁止にする（UX向上）
+            // メニュー展開時はスクロール禁止
             if (headerElement.classList.contains('menu-open')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // メニュー内のリンクをクリックしたら閉じる
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             headerElement.classList.remove('menu-open');
@@ -35,14 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // 要素の15%が見えたら発火
+        threshold: 0.1 // 少しでも見えたら発火
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // 一度表示したら監視を終了
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -57,16 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.classList.add('bg-brand-bg/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
-            header.classList.remove('py-4');
+            header.classList.add('shadow-md', 'py-3');
+            header.classList.remove('py-5');
         } else {
-            header.classList.remove('bg-brand-bg/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
-            header.classList.add('py-4');
+            header.classList.remove('shadow-md', 'py-3');
+            header.classList.add('py-5');
         }
     });
 
     // ---------------------------------------------
-    // Smooth Scroll for Anchor Links
+    // Smooth Scroll
     // ---------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
